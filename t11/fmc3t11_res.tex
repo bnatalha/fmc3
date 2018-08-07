@@ -1,0 +1,16 @@
+\section{Resoluções da secção \ref{sec:langsec1}}
+
+\subsection{Item \ref{prod-assoc}: $\prodlang{L}{(\prodlang{M}{N})} = \prodlang{(\prodlang{L}{M})}{N}$}
+
+\begin{proof}
+	\begin{align*}
+	s \in \prodlang{L}{(\prodlang{M}{N})} 
+	& \iff (\exists l \in L)( \exists x \in \prodlang{M}{N})(s = l \strconcat x) \tag{def. de prod. lang.}
+	\\ & \iff (\exists l \in L)( \exists x \in \prodlang{M}{N})(\exists m \in M)(\exists n \in N)(x = m \strconcat n \land s = l \strconcat x) \tag{def. de prod. lang.} %não pude colocar matematica dentro da tag
+	\\ & \iff (\exists l \in L)(\exists m \in M)(\exists n \in N)(s = l \strconcat (m \strconcat n)) \tag{def. de prod. lang.}
+	\\ & \iff (\exists l \in L)(\exists m \in M)(\exists n \in N)(s = (l \strconcat m) \strconcat n) \tag{associatividade de concatenação de string} % e transitividade prod de linguagem?
+	\\ & \iff (\exists y \in \prodlang{L}{M})(\exists l \in L)(\exists m \in M)(\exists n \in N)(y = l \strconcat m \land s = y \strconcat n) \tag{def. de prod. lang.}
+	\\ & \iff (\exists y \in \prodlang{L}{M})(\exists n \in N)(s = y \strconcat n) \tag{def. de prod. lang.}
+	\\ & \iff s \in \prodlang{(\prodlang{L}{M})}{L}
+	\end{align*}
+\end{proof}

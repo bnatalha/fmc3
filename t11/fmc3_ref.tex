@@ -1,0 +1,49 @@
+% Autor(a): Natália Azevedo de Brito
+
+\documentclass[11pt,a4paper]{article}
+
+% Pacotes utilizados
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{upgreek,booktabs,yhmath,bbm}
+\usepackage{amssymb,latexsym}
+\usepackage{mathtools}
+
+\usepackage{xcolor}
+
+\usepackage{enumerate,enumitem}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem*{defin}{Definição}
+
+\makeatletter
+\def \equalsfill{$\m@th \mathord=\mkern-7mu
+	\cleaders \hbox{$\!\mathord=\!$}\hfill \mkern-7mu \mathord=$}
+\makeatother
+\newcommand{\defeq}{\ensuremath{\stackrel{\text{\tiny def}}{\hbox{\equalsfill}}}}
+\newcommand{\defi}{\ensuremath{\stackrel{\text{\tiny (i)}}{\hbox{\equalsfill}}}}
+\newcommand{\defii}{\ensuremath{\stackrel{\text{\tiny (ii)}}{\hbox{\equalsfill}}}}
+
+% Novos comandos ------------------------------------------------------------------
+\newcommand{\prodlangsymbol}{\cdot} % símbolo usado para representar a operação de produto de linguagens
+\newcommand{\strconcat}{*} % símbolo usado para representar a concatenção de strings
+\newcommand{\prodlang}[2]{#1 \prodlangsymbol #2} % produto de linguagens
+\newcommand{\emptystr}{\Lambda}
+\newcommand{\lS}[1]{\mathsf{S}(#1)} % conjunto de todas as string dum alfabeto #1
+\newcommand{\lconcatclosure}[1]{#1^*}
+\newcommand{\lplusclosure}[1]{#1^+}
+
+% --- conjuntos ---
+\newcommand{\natset}{\mathbb{N}} % naturais
+\newcommand{\natsetnozero}{\natset\setminus\lset{0}} % naturais sem zero
+\renewcommand{\emptyset}{\varnothing} % conjunto vazio
+\renewcommand{\lgroup}[1]{\langle #1 \rangle} % notação de grupo
+\newcommand{\lpowerset}[1]{\mathsf{Pow}(#1)} % powerset
+\newcommand{\lset}[1]{\{ #1 \}}
+\newcommand{\lsetwithdef}[2]{\{ #1 : #2 \}}
+\newcommand{\lbigunionsymbol}{\bigcup}
+\newcommand{\lbigunion}[2]{\lbigunionsymbol_{#1}{#2}}
+
+% --- demonstração ---
+\newcommand \lexplanation[1]{[#1]}

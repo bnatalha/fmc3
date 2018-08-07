@@ -1,0 +1,67 @@
+\section{Linguagens}
+\subsection{O grupo $\lgroup{\lS{A},\strconcat,\emptystr}$} \label{sec:langsec1}
+
+\noindent
+A seguir fixamos um conjunto $A$ arbitrário como \textsl{alfabeto}, e consideramos $\lS{A}$ como o conjunto de todas as strings sobre este alfabeto.  Usamos~$\emptystr$ para nos referirmos à string vazia, e representamos por $s \strconcat t$ o resultado de concatenar as strings $s$ e $t$. Como de costume, assumimos que $\lgroup{\lS{A},\strconcat,\emptystr}$ forma um monoide.  Assumimos ainda a seguir que uma \textsl{linguagem sobre $A$} é simplesmente um subconjunto de $\lS{A}$.
+
+\begin{defin}
+	Dadas duas linguagens $L_1$ e $L_2$ sobre $A$, definimos o \textsl{produto $\prodlang{L_1}{L_2}$ de $L_1$ por $L_2$} como a linguagem dada por $\lsetwithdef{s_1 \strconcat s_2}{s_1 \in L_1 \land s_2 \in L_2}$. Dada uma linguagem $L$ sobre $A$, definimos o \textsl{fecho $\lconcatclosure{L}$ de $L$ sob o produto} como a linguagem dada por $\lbigunion{n\in\natset}{L^n}$, onde $L^0:=\lset{\emptystr}$~ e~$L^{n+1}:=\prodlang{L}{L^{n}}$.  Definimos ainda o \textsl{fecho positivo $\lplusclosure{L}$ de $L$ sob o produto} como a linguagem dada por $\lbigunion{n\in\natsetnozero}{L^n}$.
+\end{defin}
+
+Seguem algumas propriedades do produto de linguagens, dados $L,M,N\subseteq \lS{A}$ arbitrários:
+\begin{enumerate}[label=(\alph*)]
+	
+	\item\label{prod-assoc} 
+	$L\cdot(M\cdot N)=(L\cdot M)\cdot N$
+	
+	\item\label{prod-strvazia} 
+	$L\cdot\{\Lambda\}=L=\{\Lambda\}\cdot L$
+	
+	\item\label{prod-conjvazio} 
+	$L\cdot\varnothing=\varnothing=\varnothing\cdot L$
+	
+	\item\label{prod-uniao} 
+	$L\cdot (M\cup N)=(L\cdot M)\cup(L\cdot N)$
+	
+	\item\label{prod-intersecao}
+	$L\cdot(M\cap N)\subseteq (L\cdot M)\cap(L\cdot N)$, mas a recíproca ($\supseteq$) nem sempre vale
+	
+	\item\label{prod-monot}
+	se $L\subseteq M$, então $N\cdot L\subseteq N\cdot M$ e também $L\cdot N\subseteq M\cdot N$
+	
+\end{enumerate}
+
+\subsection{O grupo $\lgroup{\lpowerset{\lS{A}},\prodlangsymbol,\lset{\emptystr}}$} \label{sec:langsec2}
+
+Vale notar, de \ref{prod-assoc}  e \ref{prod-strvazia}, que a estrutura $\lgroup{\lpowerset{\lS{A}},\prodlangsymbol,\lset{\emptystr}}$ é um monoide. Seguem agora algumas propriedades do fecho de linguagens sob produto, dados $L,M\subseteq \lS{A}$ arbitrários:
+
+\begin{enumerate}[label=(\Alph*)]
+	
+	\item\label{cls-lambda} 
+	$\{\Lambda\}^*=\{\Lambda\}=\varnothing^*$
+	
+	\item\label{cls-pos}
+	$L^+=L^*$ sse $\Lambda\in L$
+	
+	\item\label{cls-duplo1}
+	$(L^*)^*=L^*$
+	
+	\item\label{cls-duplo2}
+	$(L^*)\cdot(L^*)=L^*$
+	
+	\item\label{cls-interprod1}
+	$L\cdot(M\cdot L)^*=(L\cdot M)^*\cdot L$
+	
+	\item\label{cls-monot}
+	se $L\subseteq M$ então $L^*\subseteq M^*$
+	
+	\item\label{cls-uniao}
+	$L^*\cup M^*\subseteq (L\cup M)^*$, mas a recíproca nem sempre vale
+	
+	\item\label{cls-misc}
+	$(L\cup M)^*\defi(L^*\cup M^*)^*\defii(L^*\cdot M^*)^*$
+	
+\end{enumerate}
+
+\noindent 
+Como obviamente $L=L^1\subseteq L^*$, de \ref{cls-monot} e \ref{cls-duplo1} podemos concluir que o fecho sob o produto é um exemplo de \textit{operador de fecho}.
